@@ -1,29 +1,34 @@
-# Bomb.gd (or whatever script is on your bomb node)
 extends Area2D
 
-# Removed @onready var timer = $Timer and the timer functions
-# because they are unnecessary for a simple scene reload.
+# Variable to hold the name of the player's group (optional but good practice)
+const PLAYER_GROUP = "player"
 
+# Called when the node enters the scene tree for the first time.
 func _ready():
-	# Use the built-in signal connection from the editor or connect like this:
-	# connect("body_entered", Callable(self, "_on_body_entered"))
-	# Note: In modern Godot, using the editor's Signals tab is often easier.
-	pass
+	# Connect the 'body_entered' signal to a function in this script.
+	# This signal is emitted when a PhysicsBody2D (like a CharacterBody2D/RigidBody2D) 
+	# enters the Area2D's collision shape.
+	connect("body_entered", Callable(self, "_on_body_entered"))
 
-func _on_body_entered(body: Node) -> void:
-	# Check if the body that entered the bomb's area is the player
-	print("Something hit me")
-	if body.is_in_group("player"):
-		print("Player hit by bomb! Resetting scene.")
-		
-		# Immediately reload the current scene
-		get_tree().reload_current_scene()
 
-func _on_area_entered(area: Node) -> void:
-	print("Something hit me")
-	if area.is_in_group("player"):
-		print("Pld dayer hit by bomb! Resetting scene.")
+# Function that runs when another body enters the bomb's area.
+func _on_body_entered(body):
+	print("something hit me")
+	# Check if the body that entered is the player (e.g., by checking a group).
+	# Make sure your Player node is added to the "player" group!
+	if body.is_in_group(PLAYER_GROUP):
+		print("Player hit the bomb! Restarting level...")
 		
-		# Immediately reload the current scene
-		get_tree().reload_current_scene()
- 
+		# --- RESTART THE LEVEL ---
+		restart_level()
+		
+		# Optionally queue_free() the bomb so it can't be hit again
+		# queue_free() 
+
+
+func restart_level():
+	# Get the current scene's path. If your current level scene is e.g. "res://scenes/Level1.tscn"
+	var current_scene_path = get_tree().current_scene.scene_file_path
+	
+	# Reload the current scene
+	get_tree().change_scene_to_file(current_scene_path)
