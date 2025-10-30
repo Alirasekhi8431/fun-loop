@@ -1,34 +1,35 @@
 extends Area2D
 
-# Variable to hold the name of the player's group (optional but good practice)
 const PLAYER_GROUP = "player"
+const GRAVITY: float = 800.0 # Standard Godot gravity value
+var velocity: Vector2 = Vector2.ZERO # Stores the movement vector
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	# Connect the 'body_entered' signal to a function in this script.
-	# This signal is emitted when a PhysicsBody2D (like a CharacterBody2D/RigidBody2D) 
-	# enters the Area2D's collision shape.
 	connect("body_entered", Callable(self, "_on_body_entered"))
 
 
-# Function that runs when another body enters the bomb's area.
+func _physics_process(delta):
+	# 1. Apply gravity (increase downward velocity over time)
+	velocity.y += GRAVITY * delta
+	
+	# 2. Move the bomb using the calculated velocity
+	# NOTE: Area2D doesn't have move_and_slide(), so we update position directly.
+	position += velocity * delta
+	
+	# Optional: Check for collision with the ground/static environment
+	# A cleaner way is using signals (see note below), but a simple Y check works:
+	# if position.y > get_viewport_rect().size.y:
+	#     queue_free() # Remove bomb if it falls off screen
+
+
 func _on_body_entered(body):
-	print("something hit me")
-	# Check if the body that entered is the player (e.g., by checking a group).
-	# Make sure your Player node is added to the "player" group!
+	# This check remains the same for player collision
 	if body.is_in_group(PLAYER_GROUP):
 		print("Player hit the bomb! Restarting level...")
-		
-		# --- RESTART THE LEVEL ---
 		restart_level()
+		# queue_free() # Bomb explodes/disappears
 		
-		# Optionally queue_free() the bomb so it can't be hit again
-		# queue_free() 
-
 
 func restart_level():
-	# Get the current scene's path. If your current level scene is e.g. "res://scenes/Level1.tscn"
 	var current_scene_path = get_tree().current_scene.scene_file_path
-	
-	# Reload the current scene
 	get_tree().change_scene_to_file(current_scene_path)
