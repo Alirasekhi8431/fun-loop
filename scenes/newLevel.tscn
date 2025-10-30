@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dvg3fsqci4ic2"]
+
+[node name="NewLevel" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Node2D"]
+format = 2

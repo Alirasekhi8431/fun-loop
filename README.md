@@ -35,4 +35,3 @@ This project is distributed under the **Unlicense** – you are free to use, mod
 
 ---
 🚀 **Start learning Godot with KnightPlatformer!** If you have any questions, open an issue or join the discussion.
-
