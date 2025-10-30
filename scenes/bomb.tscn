@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjoeuksa6n84s"]
+
+[ext_resource type="Script" uid="uid://bdk83cufpdi6v" path="res://scenes/bomb.gd" id="1_vpdcx"]
+[ext_resource type="Texture2D" uid="uid://bn6gsy3dls50i" path="res://assets/sprites/bomb.png" id="2_j15uc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84slv"]
+size = Vector2(13, 20)
+
+[node name="Bomb" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_vpdcx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_84slv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -6.018531e-36)
+scale = Vector2(0.012695311, 0.01953125)
+texture = ExtResource("2_j15uc")
