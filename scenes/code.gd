@@ -3,7 +3,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Label.set_text(generate_hash(Globals.group_id, ""))
+	$Label.set_text(generate_hash(Globals.group_id, "J6XML83J"))
 	pass # Replace with function body.
 
 
