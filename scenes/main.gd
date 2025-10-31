@@ -1,4 +1,4 @@
-# Main.gd
+#  Main.gd
 extends Node2D
 
 # Path to your level scene
