@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dlc1sq1xwn5jk"]
+[gd_scene load_steps=16 format=3 uid="uid://dlc1sq1xwn5jk"]
 
 [ext_resource type="Script" uid="uid://dxuf40asaxghr" path="res://scripts/game_manager.gd" id="1_5mhml"]
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_rupth"]
@@ -181,6 +181,9 @@ sources/0 = SubResource("TileSetAtlasSource_ashvg")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fh4ka"]
 distance = -20.0
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bradm"]
+distance = -20.0
+
 [node name="Game2" type="Node2D"]
 position = Vector2(-512, -80)
 
@@ -314,3 +317,12 @@ rotation_smoothing_enabled = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(648, -32)
 shape = SubResource("WorldBoundaryShape2D_fh4ka")
+
+[node name="endgame" parent="." instance=ExtResource("4_fh4ka")]
+position = Vector2(16, 103)
+script = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="endgame"]
+position = Vector2(630, -74)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_bradm")

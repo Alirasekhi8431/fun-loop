@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c0vu4h6ccb5ee"]
+[gd_scene load_steps=18 format=3 uid="uid://c0vu4h6ccb5ee"]
 
 [ext_resource type="Script" uid="uid://dxuf40asaxghr" path="res://scripts/game_manager.gd" id="1_5rpqf"]
 [ext_resource type="FontFile" uid="uid://c53kogtyjwsss" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_jsxom"]
@@ -9,9 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://cvtrcwn2s3oqp" path="res://scenes/gun.tscn" id="5_qx0sd"]
 [ext_resource type="PackedScene" uid="uid://bgv5v2fxqlswe" path="res://scenes/platform.tscn" id="6_4irmf"]
 [ext_resource type="Script" uid="uid://yweiso7dhqar" path="res://scenes/bound.gd" id="6_qq11b"]
+[ext_resource type="Script" uid="uid://buk6pj26g4wny" path="res://scenes/gun.gd" id="6_rqnn0"]
 [ext_resource type="PackedScene" uid="uid://d2w2i5h0lhc6l" path="res://scenes/slime.tscn" id="7_rqnn0"]
 [ext_resource type="FontFile" uid="uid://dbjl1e6kdxpl6" path="res://assets/fonts/PixelOperator8.ttf" id="8_noidd"]
-[ext_resource type="PackedScene" uid="uid://dh3x6lscraayp" path="res://scenes/boss.tscn" id="11_7feci"]
+[ext_resource type="Script" uid="uid://bbjciaesk056b" path="res://scenes/endgame2.gd" id="13_4irmf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ashvg"]
 texture = ExtResource("3_qx0sd")
@@ -181,6 +182,9 @@ sources/0 = SubResource("TileSetAtlasSource_ashvg")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cn5tm"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rqnn0"]
+distance = -20.0
+
 [node name="Game" type="Node2D"]
 
 [node name="GameManager" type="Node" parent="."]
@@ -220,6 +224,7 @@ position_smoothing_enabled = true
 
 [node name="Gun" parent="Player" instance=ExtResource("5_qx0sd")]
 position = Vector2(9, -6)
+script = ExtResource("6_rqnn0")
 
 [node name="bound" type="Node" parent="Player"]
 script = ExtResource("6_qq11b")
@@ -323,12 +328,17 @@ theme_override_font_sizes/font_size = 8
 text = "Collect coins to get further away 
 from your tree."
 
-[node name="Boss" parent="." groups=["Boss"] instance=ExtResource("11_7feci")]
-visible = false
-position = Vector2(629, 141)
-
 [node name="Slime" parent="." instance=ExtResource("7_rqnn0")]
 position = Vector2(134, 19)
 
 [node name="Slime2" parent="." instance=ExtResource("7_rqnn0")]
 position = Vector2(196, 19)
+
+[node name="endgame" parent="." instance=ExtResource("4_7feci")]
+position = Vector2(16, 103)
+script = ExtResource("13_4irmf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="endgame"]
+position = Vector2(428, -52)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_rqnn0")

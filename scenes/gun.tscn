@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cvtrcwn2s3oqp"]
 
-[ext_resource type="Script" uid="uid://dykd435mrgc2h" path="res://scenes/Gun.cs" id="1_og67c"]
+[ext_resource type="Script" uid="uid://buk6pj26g4wny" path="res://scenes/gun.gd" id="1_og67c"]
 [ext_resource type="Texture2D" uid="uid://gx1xihdbejvu" path="res://assets/sprites/fruit.png" id="1_x77fm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gp1hk"]

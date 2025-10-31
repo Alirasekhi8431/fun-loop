@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://decvshecfpexi"]
 
-[ext_resource type="Script" uid="uid://b1dq3w5x5v3uv" path="res://scenes/Bullet.cs" id="1_mkf8s"]
+[ext_resource type="Script" uid="uid://byhsvuomtpxhe" path="res://scenes/bullet.gd" id="1_mkf8s"]
 
 [node name="Node2D" type="CharacterBody2D" groups=["col"]]
 motion_mode = 1

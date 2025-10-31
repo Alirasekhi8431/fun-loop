@@ -5,9 +5,10 @@ extends Area2D
 func _on_body_entered(body):
 	if body.name.begins_with("Player"):
 		print("You died!")
-		Engine.time_scale = 0.5
-		body.get_node("CollisionShape2D").queue_free()
-		timer.start()
+		get_tree().change_scene_to_file("res://scenes/main.tscn")
+		#Engine.time_scale = 0.5
+		#body.get_node("CollisionShape2D").queue_free()
+		#timer.start()
 	else:
 		print("Killed slime")
 		get_parent().queue_free()
