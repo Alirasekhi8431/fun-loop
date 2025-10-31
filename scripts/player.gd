@@ -1,8 +1,9 @@
 extends CharacterBody2D
-
+class_name Player
 
 const SPEED = 130.0
 var JUMP_VELOCITY = -300.0
+@onready var game_manager = %GameManager
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -24,8 +25,10 @@ func _physics_process(delta):
 	# Flip the Sprite
 	if direction > 0:
 		animated_sprite.flip_h = false
+		set_meta("isLeft", false)
 	elif direction < 0:
 		animated_sprite.flip_h = true
+		set_meta("isLeft", true)
 	
 	# Play animations
 	if is_on_floor():
