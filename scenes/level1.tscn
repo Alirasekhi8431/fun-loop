@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://n47qvywu1nd0" path="res://scenes/magicalMushroom.tscn" id="10_d3jkd"]
 [ext_resource type="PackedScene" uid="uid://cjoeuksa6n84s" path="res://scenes/bomb.tscn" id="11_u3awl"]
 [ext_resource type="PackedScene" uid="uid://cw5mjr170k4xx" path="res://scenes/witch.tscn" id="12_2ku1j"]
-[ext_resource type="Script" uid="uid://d3tkdhlh5rwv7" path="res://scenes/endgame.gd" id="13_f31uk"]
+[ext_resource type="Script" path="res://scenes/endgame.gd" id="13_f31uk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ashvg"]
 texture = ExtResource("3_nsaxx")
@@ -254,7 +254,10 @@ collision_layer = 2
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(1, -4)
 zoom = Vector2(4, 4)
-limit_bottom = 120
+limit_left = -9999997
+limit_top = -9999953
+limit_right = 10000003
+limit_bottom = 167
 limit_smoothed = true
 position_smoothing_enabled = true
 
