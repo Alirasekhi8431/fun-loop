@@ -215,48 +215,63 @@ position = Vector2(16, 103)
 [node name="Coins" type="Node" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource("5_qewby")]
-position = Vector2(136, 41)
+position = Vector2(64, -80)
 
 [node name="Coin3" parent="Coins" instance=ExtResource("5_qewby")]
-position = Vector2(-56, -88)
+position = Vector2(-224, 136)
 
 [node name="Coin4" parent="Coins" instance=ExtResource("5_qewby")]
-position = Vector2(240, 24)
+position = Vector2(-360, 178)
 
 [node name="Coin5" parent="Coins" instance=ExtResource("5_qewby")]
-position = Vector2(56, 56)
+position = Vector2(16, -48)
 
 [node name="Coin6" parent="Coins" instance=ExtResource("5_qewby")]
-position = Vector2(216, 136)
+position = Vector2(52, 112)
 
 [node name="Coin7" parent="Coins" instance=ExtResource("5_qewby")]
-position = Vector2(200, 136)
+position = Vector2(-280, 112)
 
 [node name="Coin9" parent="Coins" instance=ExtResource("5_qewby")]
-position = Vector2(536, 136)
+position = Vector2(72, -128)
 
 [node name="Coin10" parent="Coins" instance=ExtResource("5_qewby")]
 position = Vector2(592, 168)
 
 [node name="Coin8" parent="Coins" instance=ExtResource("5_qewby")]
-position = Vector2(264, 152)
+position = Vector2(104, 144)
 
 [node name="Coin2" parent="Coins" instance=ExtResource("5_qewby")]
-position = Vector2(-264, -24)
+position = Vector2(-272, -56)
+
+[node name="Coin11" parent="Coins" instance=ExtResource("5_qewby")]
+position = Vector2(-432, 160)
+
+[node name="Coin12" parent="Coins" instance=ExtResource("5_qewby")]
+position = Vector2(-496, 160)
+
+[node name="Coin15" parent="Coins" instance=ExtResource("5_qewby")]
+position = Vector2(-432, 48)
+
+[node name="Coin13" parent="Coins" instance=ExtResource("5_qewby")]
+position = Vector2(-480, 24)
+
+[node name="Coin14" parent="Coins" instance=ExtResource("5_qewby")]
+position = Vector2(-480, 24)
 
 [node name="Platforms" type="Node" parent="."]
 
 [node name="Platform" parent="Platforms" instance=ExtResource("6_bradm")]
-position = Vector2(-232, 16)
+position = Vector2(-104, 32)
 
 [node name="Slime" parent="." instance=ExtResource("7_got4s")]
 position = Vector2(472, 144)
 
 [node name="Slime2" parent="." instance=ExtResource("7_got4s")]
-position = Vector2(552, 256)
+position = Vector2(556, 265)
 
 [node name="Slime3" parent="." instance=ExtResource("7_got4s")]
-position = Vector2(248, 256)
+position = Vector2(248, 280)
 
 [node name="Labels" type="Node" parent="."]
 
@@ -297,5 +312,5 @@ position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(648, -24)
+position = Vector2(648, -32)
 shape = SubResource("WorldBoundaryShape2D_fh4ka")
